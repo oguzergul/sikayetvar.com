@@ -1,0 +1,549 @@
+@import "variables";
+@import "typography";
+@import "reset";
+@import "./mixins/flexbox";
+@import "./mixins/typography";
+@import "./mixins/container";
+
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+
+  hr {
+    padding: 0;
+    margin: 0 36px 0 24px;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+
+  #app {
+    .background-cover {
+
+      &-base {
+        position: absolute;
+        z-index: -2;
+        left: 0;
+        top: 0;
+        right: 0;
+      }
+
+      &-oval-container {
+
+        :nth-child(1) {
+          left: -4.03%;
+          right: 95.69%;
+          top: -0.86%;
+        }
+
+        :nth-child(2) {
+          left: -0.42%;
+          right: 92.08%;
+          top: 22.42%;
+        }
+
+        :nth-child(3) {
+          left: 83.47%;
+          right: 8.19%;
+          top: 4.61%;
+        }
+
+        :nth-child(4) {
+          left: 86.11%;
+          right: 5.56%;
+          top: 19.61%;
+        }
+
+        :nth-child(5) {
+          left: 82.5%;
+          right: 9.17%;
+          top: 24.84%;
+        }
+
+        :nth-child(6) {
+          left: 55.69%;
+          right: 35.97%;
+          top: 7.03%;
+        }
+
+        :nth-child(7) {
+          left: 10.76%;
+          right: 75.42%;
+          top: 17.5%;
+          height: 200px;
+        }
+
+        &-item {
+          position: absolute;
+          z-index: -1;
+          height: 120px;
+          mix-blend-mode: normal;
+        }
+      }
+
+    }
+
+    .container-card {
+      width: 100%;
+      margin-top: 187px;
+      box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+      border-radius: $radius-secondary;
+      background-color: $solid-white;
+      max-width: 1014px;
+      margin-left: auto;
+      margin-right: auto;
+
+      ol {
+        :last-child {
+          hr {
+            display: none;
+          }
+        }
+      }
+
+      .list-item {
+        border-radius: inherit;
+
+        &-container {
+          @include flexCenter(row);
+          @include flexBetween(row);
+          padding: 29px 36px 28px 24px;
+
+          &-content {
+            @include flexCenter(row);
+
+            &-number {
+              @include fontFace($font-size-secondary, $primary-font-family, bold);
+              color: $text-secondary;
+              line-height: 19px;
+            }
+
+            &-text {
+              @include fontFace($font-size-secondary, $primary-font-family, 300px);
+              line-height: 19px;
+              color: $text-primary;
+              padding-left: 10px;
+            }
+
+
+          }
+
+          &-button-group {
+            @include flexCenter(row);
+
+            :nth-child(2) {
+              margin-left: 20px;
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+
+    }
+
+
+    main {
+      @include container;
+      min-height: 100vh;
+
+      .user-detail {
+        padding: 30px;
+
+        &-main {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          padding-bottom: 58px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+          &-info {
+            line-height: 35px;
+
+            &-name {
+              @include fontFace($font-size-elementary, $primary-font-family, normal);
+              font-size: 28px;
+              color: $text-primary;
+            }
+
+            &-city {
+              @include fontFace($font-size-subtitle, $primary-font-family, 300);
+              font-size: 16px;
+              color: $text-primary;
+            }
+
+            &-user {
+              display: flex;
+              flex-direction: row;
+              margin-top: 30px;
+
+
+              &-labels {
+                ul {
+                  li {
+                    @include fontFace($font-size-secondary, $primary-font-family, normal);
+                    line-height: 26px;
+                    letter-spacing: 0.1px;
+                    color: #ADB5BD;
+                  }
+                }
+              }
+
+              &-values {
+                margin-left: 25px;
+
+                ul {
+
+                  li {
+                    @include fontFace($font-size-title, $primary-font-family, 600);
+                    font-size: 16px;
+                    line-height: 26px;
+                    letter-spacing: 0.114286px;
+                    color: #525F7F;
+                  }
+
+                  :nth-child(4) {
+                    color: #4A90E2;
+                  }
+                }
+              }
+            }
+          }
+
+          &-map {
+            &-container {
+              margin-left: auto;
+              height: 258px;
+              width: 485px;
+            }
+          }
+
+
+        }
+
+        &-footer {
+          padding: 65px 67.5px 18px 67.5px;
+          text-align: center;
+          letter-spacing: -0.3px;
+
+          &-description {
+            @include fontFace($font-size-title, $primary-font-family, normal);
+            color: #525F7F;
+            line-height: 27px;
+          }
+
+          &-link {
+            @include fontFace($font-size-title, $primary-font-family, normal);
+            line-height: 22px;
+            color: $text-blue;
+            display: inline-block;
+            margin-top: 25px;
+          }
+        }
+      }
+
+      .post-detail {
+        @include flexCenter(column);
+        @include fontFace($font-size-primary, $primary-font-family, normal);
+        padding: 30px;
+        text-align: center;
+
+        &-user {
+          color: $text-blue;
+          margin-bottom: 25px;
+          cursor: pointer;
+        }
+
+        &-post {
+          color: $text-tertiary;
+
+        }
+
+      }
+    }
+
+    header {
+      @include container;
+      @include flexBetween(row);
+      padding-top: 32px;
+
+      div {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+
+        a {
+          @include fontFace($font-size-secondary, $primary-font-family, normal);
+          color: $text-white;
+          mix-blend-mode: normal;
+          opacity: 0.95;
+          text-decoration: none;
+          margin-left: 50.44px;
+        }
+
+      }
+
+      nav {
+
+        button {
+          span {
+            color: $solid-purple !important;
+          }
+        }
+      }
+    }
+
+    footer {
+
+      .footer-container {
+        @include container;
+
+        &-top {
+          display: grid;
+          grid-template-columns: 1fr 265px;
+          padding-bottom: 52px;
+
+          &-infos {
+            @include fontFace($font-size-tertiary, $primary-font-family, normal);
+
+            &-greeting {
+              color: $primary-color;
+            }
+
+            &-platforms {
+              color: $text-primary;
+              margin-top: 25px;
+              font-weight: 300;
+            }
+          }
+
+          &-social {
+            @include flexBetween(row);
+            padding-right: 55px;
+
+          }
+
+        }
+
+        &-bottom {
+          padding-top: 40px;
+          padding-bottom: 53px;
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+          @include flexBetween(row);
+          @include fontFace($font-size-secondary, $primary-font-family, bold);
+          letter-spacing: -0.4px;
+
+          &-copyrights {
+
+            &-symbol {
+              color: $text-secondary;
+            }
+
+            &-brand {
+              color: $primary-color;
+              margin-left: 7px;
+            }
+          }
+
+          nav {
+            a {
+              color: #8898AA;
+            }
+          }
+
+        }
+      }
+    }
+
+    button {
+      @include flexCenter(row);
+      padding: 12px 21px;
+      border-radius: $radius-primary;
+      cursor: pointer;
+      box-shadow: $box-shadow;
+      border: none;
+
+      span {
+        @include fontFace($font-size-secondary, $primary-font-family, $font-bold);
+        color: $text-white;
+      }
+    }
+
+    form {
+      .form-title {
+        @include fontFace($font-size-secondary, $primary-font-family, 600);
+        color: $text-secondary;
+        letter-spacing: 0.431667px;
+        margin-bottom: 12px;
+        margin-top: 20px;
+      }
+
+      input,
+      textarea {
+        border: 1px solid #CAD1D7;
+        border-radius: 4px;
+        padding: 13px;
+        min-width: 100%;
+        color: $text-tertiary;
+        @include fontFace($font-size-secondary, $primary-font-family, normal);
+      }
+
+      textarea {
+        resize: none;
+      }
+    }
+
+    .regular-button {
+      height: 43px;
+    }
+
+    .social-media-button {
+      @include flexCenter(column);
+      position: relative;
+      border-radius: $radius-secondary;
+      box-shadow: $box-shadow;
+      height: 38px;
+      width: 38px;
+      cursor: pointer;
+
+      &:hover {
+        margin-top: -2px !important;
+
+        .social-media-button-popover {
+          visibility: visible;
+        }
+      }
+
+      &-popover {
+        @include fontFace($font-size-secondary, $primary-font-family, 400);
+        color: $text-white;
+        position: absolute;
+        visibility: hidden;
+        z-index: 1;
+
+        @include flexCenter(column);
+        border-radius: $radius-secondary;
+        height: 29px;
+        width: 77px;
+        bottom: 100%;
+        margin-bottom: 5px;
+        background-color: #212529;
+
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          border-width: 10px;
+          border-style: solid;
+          border-radius: 1px;
+          margin-top: 1px;
+          border-color: #212529 transparent transparent transparent;
+        }
+      }
+    }
+
+    .modal {
+      z-index: 9999;
+      top: 155px;
+      left: 0;
+      right: 0;
+      position: fixed;
+      width: 100vw;
+      height: 100%;
+      transition: opacity 0.3s ease;
+
+      &-container {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $text-white;
+        border-radius: $radius-secondary;
+        box-shadow: $box-shadow;
+        width: 500px;
+        height: 421px;
+        overflow: hidden;
+        @include flexBetween(column);
+
+        &-header {
+          @include flexCenter(row);
+          @include flexBetween(row);
+          padding: 22px 25px 22px 22px;
+          border-bottom: 1px solid $solid-gray;
+
+          svg {
+            cursor: pointer;
+          }
+        }
+
+        &-content {
+          padding: 0 50px 26px 24px;
+
+        }
+
+        &-footer {
+          padding: 24px 0 23px 24px;
+          border-top: 1px solid $solid-gray;
+        }
+      }
+    }
+
+    .alert {
+      display: flex;
+      justify-content: center;
+      z-index: 9999;
+      top: 155px;
+      left: 0;
+      right: 0;
+      position: fixed;
+      width: 100vw;
+      height: 100%;
+      transition: opacity 0.3s ease;
+
+      &-container {
+        @include flexBetween(column);
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $text-white;
+        border-radius: $radius-secondary;
+        box-shadow: $box-shadow;
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+
+        &-header {
+          @include flexCenter(row);
+          @include flexBetween(row);
+          padding: 22px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+          &-title {
+            @include fontFace($font-size-secondary,$primary-font-family,400);
+          }
+          svg {
+            cursor: pointer;
+          }
+        }
+
+        &-body {
+          padding: 22px;
+          word-wrap: break-word;
+          text-align: center;
+
+          &-post {
+            @include fontFace($font-size-title, $primary-font-family, 400);
+          }
+
+        }
+
+        &-footer {
+          padding: 22px;
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        &-title {
+          @include fontFace($font-size-tertiary, $primary-font-family, 400);
+        }
+      }
+    }
+
+
+  }
+}
