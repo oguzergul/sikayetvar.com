@@ -3,7 +3,9 @@
     <Background/>
     <Header/>
     <main>
-      <router-view/>
+      <transition mode="out-in" name="fade">
+        <router-view/>
+      </transition>
     </main>
     <Footer/>
   </div>
@@ -18,3 +20,15 @@ export default {
   components: {Footer, Header, Background}
 }
 </script>
+
+<style scoped>
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+</style>
