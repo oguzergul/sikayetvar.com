@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import SocialButton from "../SocialButton";
+import SocialButton from "../buttons/SocialButton";
 import {IconDribble, IconFacebook, IconGithub, IconTwitter} from "../../assets/icons";
 
 export default {

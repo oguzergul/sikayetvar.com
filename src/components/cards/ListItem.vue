@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Button from "../Button";
+import Button from "../buttons/Button";
 
 export default {
   name: 'ListItem',

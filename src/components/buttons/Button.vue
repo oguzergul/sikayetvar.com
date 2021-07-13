@@ -13,18 +13,14 @@ export default {
   props: ['type', 'title'],
   computed: {
     _button_type() {
-      const type = this.type;
-      if (type === 'detail') {
-        return '#5E72E4';
-      } else if (type === 'delete') {
-        return '#FB6340';
-      } else if (type === 'edit') {
-        return '#2DCE89';
-      } else if (type === 'update') {
-        return '#11CDEF';
-      } else if (type === 'login') {
-        return '#FFFFFF';
-      }
+      const buttonTypes = [
+        {id: 1, type: 'detail', color: '#5E72E4'},
+        {id: 2, type: 'delete', color: '#FB6340'},
+        {id: 3, type: 'edit', color: '#2DCE89'},
+        {id: 4, type: 'update', color: '#11CDEF'},
+        {id: 5, type: 'login', color: '#FFFFFF'},
+      ]
+      return buttonTypes.find(types => types.type === this.type).color;
     }
   }
 }

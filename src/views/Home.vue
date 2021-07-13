@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Button from "../components/Button";
+import Button from "../components/buttons/Button";
 import ContainerCard from "../components/cards/ContainerCard";
 import ListItem from "../components/cards/ListItem";
 import {mapGetters} from 'vuex';
@@ -80,8 +80,8 @@ export default {
         body: this.model.body,
         userId: this.selectedPost.userId,
       }
-      console.log('modal', dataModel);
-      this.$store.dispatch('UPDATE_POST', this.selectedPost.id);
+      this.$store.dispatch('UPDATE_POST', dataModel);
+      this.modalCondition = false;
     },
     getTitleValue(e) {
       this.model.title = e;

@@ -40,13 +40,11 @@ export default new Vuex.Store({
             })
         },
         GET_POST_DETAIL({commit}, payload) {
-            axiosInstance.get(`users/${payload}`).then(res => {
-                console.log('detail data dım', res.data);
-                commit('SET_USER_DETAIL', res.data);
+            axiosInstance.get(`users/${payload}`).then(detail_data_response => {
+                commit('SET_USER_DETAIL', detail_data_response.data);
             });
 
             axiosInstance.get(`posts/${payload}`).then(res => {
-                console.log('detail post data', res.data)
                 commit('SET_POST_DETAIL', res.data);
             });
 
@@ -55,8 +53,8 @@ export default new Vuex.Store({
 
         // DELETE Actions
         DELETE_POST({commit}, payload) {
-            axiosInstance.delete(`posts/${payload}`).then(res => {
-                console.log(res)
+            axiosInstance.delete(`posts/${payload}`).then(delete_response => {
+                console.log('DELETED',delete_response)
             }).catch(err => {
                 console.log(err);
             })
@@ -64,13 +62,12 @@ export default new Vuex.Store({
 
         // PUT Actions
         UPDATE_POST({commit}, payload) {
-            axiosInstance.put(`posts/${payload}`).then(res => {
-                console.log(res);
+            axiosInstance.put(`posts/${payload.id}`, payload).then(res => {
+                console.log('UPDATED',res);
             }).catch(err => {
                 console.log(err);
             })
         }
 
     },
-    modules: {}
 })

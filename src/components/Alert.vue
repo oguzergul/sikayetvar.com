@@ -17,7 +17,7 @@
 
 <script>
 import {IconClose} from "../assets/icons";
-import Button from "./Button";
+import Button from "./buttons/Button";
 
 export default {
   name: 'Alert',

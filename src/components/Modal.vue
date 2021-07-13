@@ -28,7 +28,7 @@
 
 <script>
 import {IconClose} from '../assets/icons/index'
-import Button from "./Button";
+import Button from "./buttons/Button";
 
 export default {
   name: 'Modal',
